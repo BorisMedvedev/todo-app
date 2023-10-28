@@ -8,6 +8,7 @@ export const createModalForm = () => {
   const input = document.createElement('input');
   const saveBtn = document.createElement('button');
   const cancelBtn = document.createElement('button');
+  const clearBtn = document.createElement('button');
 
   cancelBtn.type = 'button';
   input.placeholder = 'Введите свое имя';
@@ -18,17 +19,18 @@ export const createModalForm = () => {
   modalContent.classList.add('modal-content');
   modalForm.classList.add('modal-form');
   input.classList.add('modal-input');
+  clearBtn.classList.add('clear-btn');
 
   modalTitle.textContent = 'Введите свое имя';
   saveBtn.textContent = 'Войти';
   cancelBtn.textContent = 'Отмена';
 
   modalForm.append(input, saveBtn, cancelBtn);
-  modalContent.append(modalTitle, modalForm);
+  modalContent.append(clearBtn, modalTitle, modalForm);
   overlay.append(modalContent);
 
   document.addEventListener('click', (e) => {
-    if (e.target === overlay || e.target === cancelBtn) {
+    if (e.target === overlay || e.target === cancelBtn || e.target === clearBtn) {
       overlay.remove();
     }
   });

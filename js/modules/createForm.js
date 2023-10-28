@@ -45,7 +45,6 @@ export const createForm = (username) => {
     addUserTask(username, newTask);
   });
 
-  // Возвращаем объект с элементами формы...
   return {
     form,
     input,

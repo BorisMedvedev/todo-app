@@ -27,7 +27,6 @@ export const loadUserTasks = (username) => {
     localStorage.setItem(username, JSON.stringify(userTasks));
   }
 
-  console.log(userTasks);
   return userTasks;
 };
 
