@@ -14,7 +14,8 @@ const init = () => {
   document.body.append(modal.overlay);
   document.querySelector('.modal-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const form = createForm();
+    const username = document.querySelector('.modal-input').value;
+    const form = createForm(username);
     const table = createTable();
     app.classList.add(
         'vh-100',
