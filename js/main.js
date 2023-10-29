@@ -7,7 +7,6 @@ import {loadUserTasks, renderUserTasks, updateRowNumbers} from './utils.js';
 
 const init = () => {
   const app = document.querySelector('.app-container');
-  const mainTitle = createTitle('Todo App');
   const tableWrapper = createTableWrapper();
   const modal = createModalForm();
 
@@ -15,9 +14,13 @@ const init = () => {
   document.querySelector('.modal-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const username = document.querySelector('.modal-input').value;
+    const mainTitle = createTitle(`Todo App`);
     const form = createForm(username);
     const table = createTable(username);
     const userArray = loadUserTasks(username);
+    const infoUser = document.createElement('h3');
+    infoUser.textContent = `Вы вошли под логином: "${username}"`;
+    infoUser.classList.add('info-user');
     app.classList.add(
         'vh-100',
         'w-100',
@@ -26,7 +29,7 @@ const init = () => {
         'justify-content-center',
         'flex-column',
     );
-
+    document.body.append(infoUser);
     tableWrapper.append(table.table);
     app.append(mainTitle, form.form, tableWrapper);
 

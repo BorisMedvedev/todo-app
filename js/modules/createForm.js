@@ -1,4 +1,4 @@
-import {addUserTask, generateId, updateRowNumbers} from '../utils.js';
+import {addUserTask, generateId, updateRowNumbers, loadUserTasks} from '../utils.js';
 import {createTask} from './createTask.js';
 
 export const createForm = (username) => {
@@ -43,6 +43,8 @@ export const createForm = (username) => {
 
     input.value = '';
     buttonSave.disabled = true;
+    loadUserTasks(username);
+    console.log(loadUserTasks(username));
     addUserTask(username, newTask);
     document.querySelector('tbody').append(createTask(newTask));
     updateRowNumbers();
