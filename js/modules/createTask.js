@@ -34,6 +34,7 @@ export const createTask = (data, username) => {
 
   btnDelete.addEventListener('click', () => {
     const array = loadUserTasks(username);
+    console.log(array);
     if (confirm('Вы уверенны ?')) {
       for (let i = 0; i < array.length; i++) {
         if (array[i].id === data.id) {
@@ -41,7 +42,6 @@ export const createTask = (data, username) => {
         }
       }
     }
-    console.log(array);
   });
 
   return task;

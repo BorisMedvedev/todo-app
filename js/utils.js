@@ -32,7 +32,8 @@ export const addUserTask = (username, newTask) => {
 
 export const renderUserTasks = (userTasks) => {
   for (const user of userTasks) {
-    document.querySelector('tbody').append(createTask(user));
+    const newUser = createTask(user);
+    document.querySelector('tbody').append(newUser);
   }
 };
 
