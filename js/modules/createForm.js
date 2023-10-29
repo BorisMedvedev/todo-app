@@ -50,6 +50,10 @@ export const createForm = (username) => {
     updateRowNumbers();
   });
 
+  buttonClear.addEventListener('click', () => {
+    buttonSave.disabled = true;
+  });
+
   return {
     form,
     input,
