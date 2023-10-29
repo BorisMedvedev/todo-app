@@ -2,8 +2,9 @@ import {createForm} from './modules/createForm.js';
 import {createModalForm} from './modules/createModalForm.js';
 import {createTable} from './modules/createTable.js';
 import {createTableWrapper} from './modules/createTableWrapper.js';
+import {createTask} from './modules/createTask.js';
 import {createTitle} from './modules/createTitle.js';
-import {loadUserTasks, renderUserTasks, updateRowNumbers} from './utils.js';
+import {loadUserTasks, updateRowNumbers} from './utils.js';
 
 const init = () => {
   const app = document.querySelector('.app-container');
@@ -16,7 +17,7 @@ const init = () => {
     const username = document.querySelector('.modal-input').value;
     const mainTitle = createTitle(`Todo App`);
     const form = createForm(username);
-    const table = createTable(username);
+    const table = createTable();
     const userArray = loadUserTasks(username);
     const infoUser = document.createElement('h3');
     infoUser.textContent = `Вы вошли под логином: "${username}"`;
@@ -34,7 +35,16 @@ const init = () => {
     app.append(mainTitle, form.form, tableWrapper);
 
     modal.overlay.remove();
-    renderUserTasks(userArray);
+    for (const user of userArray) {
+      const newUser = createTask(user, username);
+      document.querySelector('tbody').append(newUser);
+      if (user.done) {
+        const done = document.querySelectorAll('.table-light');
+        done.forEach(element => {
+          element.className = 'table-success';
+        });
+      }
+    }
     updateRowNumbers();
   });
 };

@@ -1,5 +1,3 @@
-import {createTask} from './modules/createTask.js';
-
 export const generateId = () => {
   let id = '';
   for (let i = 0; i < 14; i++) {
@@ -29,13 +27,6 @@ export const addUserTask = (username, newTask) => {
   localStorage.setItem(username, JSON.stringify(userTasks));
 };
 
-
-export const renderUserTasks = (userTasks) => {
-  for (const user of userTasks) {
-    const newUser = createTask(user);
-    document.querySelector('tbody').append(newUser);
-  }
-};
 
 export const updateRowNumbers = () => {
   const table = document.querySelector('table');
