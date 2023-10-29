@@ -51,3 +51,9 @@
   background-size: cover;
   background-position: center;
 }
+
+.title-page {
+  font-size: 70px;
+  text-align: center;
+  margin-top: 200px;
+}

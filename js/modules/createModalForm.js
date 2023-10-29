@@ -25,6 +25,8 @@ export const createModalForm = () => {
   saveBtn.textContent = 'Войти';
   cancelBtn.textContent = 'Отмена';
 
+  input.required = true;
+
   modalForm.append(input, saveBtn, cancelBtn);
   modalContent.append(clearBtn, modalTitle, modalForm);
   overlay.append(modalContent);
@@ -33,6 +35,11 @@ export const createModalForm = () => {
     if (e.target === overlay || e.target === cancelBtn ||
       e.target === clearBtn) {
       overlay.remove();
+      const text = document.createElement('h1');
+      text.innerHTML = `
+      <h1  class = 'title-page'>Обновите страницу</h1>
+      `;
+      document.querySelector('.app-container').append(text);
     }
   });
 
