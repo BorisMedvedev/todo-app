@@ -1,4 +1,4 @@
-export const createTable = () => {
+export const createTable = (username) => {
   const table = document.createElement('table');
   const thead = document.createElement('thead');
   const theadTr = document.createElement('tr');

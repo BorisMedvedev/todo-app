@@ -1,3 +1,5 @@
+import {createTask} from './modules/createTask.js';
+
 export const generateId = () => {
   let id = '';
   for (let i = 0; i < 14; i++) {
@@ -26,3 +28,18 @@ export const addUserTask = (username, newTask) => {
 };
 
 
+export const renderUserTasks = (userTasks) => {
+  for (const user of userTasks) {
+    document.querySelector('tbody').append(createTask(user));
+  }
+};
+
+export const updateRowNumbers = () => {
+  const table = document.querySelector('table');
+  const rows = table.getElementsByTagName('tr');
+  for (let i = 1; i < rows.length; i++) {
+    const row = rows[i];
+    const numberCell = row.getElementsByTagName('td')[0];
+    numberCell.textContent = i;
+  }
+};
