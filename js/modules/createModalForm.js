@@ -30,7 +30,8 @@ export const createModalForm = () => {
   overlay.append(modalContent);
 
   document.addEventListener('click', (e) => {
-    if (e.target === overlay || e.target === cancelBtn || e.target === clearBtn) {
+    if (e.target === overlay || e.target === cancelBtn ||
+      e.target === clearBtn) {
       overlay.remove();
     }
   });

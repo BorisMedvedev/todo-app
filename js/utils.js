@@ -8,12 +8,14 @@ export const generateId = () => {
   return id;
 };
 
-export const loadUserTasks = (username) => {
-  let userTasks = [];
+export const loadUserTasks = (username, userTasks) => {
   if (localStorage.getItem(username)) {
     const userTasksJson = localStorage.getItem(username);
     userTasks = JSON.parse(userTasksJson);
   } else {
+    if (typeof userTasks === 'undefined') {
+      userTasks = [];
+    }
     localStorage.setItem(username, JSON.stringify(userTasks));
   }
 
@@ -43,3 +45,5 @@ export const updateRowNumbers = () => {
     numberCell.textContent = i;
   }
 };
+
+

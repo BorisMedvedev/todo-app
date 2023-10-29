@@ -16,7 +16,7 @@ const init = () => {
     e.preventDefault();
     const username = document.querySelector('.modal-input').value;
     const form = createForm(username);
-    const table = createTable();
+    const table = createTable(username);
     const userArray = loadUserTasks(username);
     app.classList.add(
         'vh-100',

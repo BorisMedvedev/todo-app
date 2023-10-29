@@ -1,5 +1,4 @@
 import {addUserTask, generateId} from '../utils.js';
-
 export const createForm = (username) => {
   const form = document.createElement('form');
   const label = document.createElement('label');

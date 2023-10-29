@@ -32,9 +32,8 @@ export const createTask = (data, username) => {
     statusTd.textContent = 'Завершена';
   }
 
-  btnDelete.addEventListener('click', async () => {
-    const array = await loadUserTasks(username);
-    console.log(array);
+  btnDelete.addEventListener('click', () => {
+    const array = loadUserTasks(username);
     if (confirm('Вы уверенны ?')) {
       for (let i = 0; i < array.length; i++) {
         if (array[i].id === data.id) {
@@ -42,6 +41,7 @@ export const createTask = (data, username) => {
         }
       }
     }
+    console.log(array);
   });
 
   return task;
