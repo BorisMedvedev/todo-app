@@ -38,12 +38,6 @@ const init = () => {
     for (const user of userArray) {
       const newUser = createTask(user, username);
       document.querySelector('tbody').append(newUser);
-      if (user.done) {
-        const done = document.querySelectorAll('.table-light');
-        done.forEach(element => {
-          element.className = 'table-success';
-        });
-      }
     }
     updateRowNumbers();
   });
