@@ -1,10 +1,10 @@
+import {loadUserTasks, updateRowNumbers} from './utils.js';
 import {createForm} from './modules/createForm.js';
 import {createModalForm} from './modules/createModalForm.js';
 import {createTable} from './modules/createTable.js';
 import {createTableWrapper} from './modules/createTableWrapper.js';
 import {createTask} from './modules/createTask.js';
 import {createTitle} from './modules/createTitle.js';
-import {loadUserTasks, updateRowNumbers} from './utils.js';
 
 const init = () => {
   const app = document.querySelector('.app-container');
@@ -15,10 +15,10 @@ const init = () => {
   document.querySelector('.modal-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const username = document.querySelector('.modal-input').value;
+    const userArray = loadUserTasks(username);
     const mainTitle = createTitle(`Todo App`);
     const form = createForm(username);
     const table = createTable();
-    const userArray = loadUserTasks(username);
     const infoUser = document.createElement('h3');
     infoUser.textContent = `Вы вошли под логином: "${username}"`;
     infoUser.classList.add('info-user');

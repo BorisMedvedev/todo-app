@@ -33,7 +33,6 @@ export const createTask = (data, username) => {
       }
     }
 
-    localStorage.setItem(username, JSON.stringify(arrayNew));
     if (!data.done) {
       task.className = 'table-light';
       statusTd.textContent = 'В процессе';
@@ -43,6 +42,7 @@ export const createTask = (data, username) => {
       taskNameTd.className = 'text-decoration-line-through';
       statusTd.textContent = 'Завершена';
     }
+    localStorage.setItem(username, JSON.stringify(arrayNew));
   });
 
 
@@ -52,11 +52,11 @@ export const createTask = (data, username) => {
       for (let i = 0; i < array.length; i++) {
         if (array[i].id === data.id) {
           array.splice(i, 1);
-          localStorage.setItem(username, JSON.stringify(array));
           task.remove();
         }
       }
     }
+    localStorage.setItem(username, JSON.stringify(array));
     updateRowNumbers();
   });
 

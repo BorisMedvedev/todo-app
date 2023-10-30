@@ -44,9 +44,8 @@ export const createForm = (username) => {
 
     input.value = '';
     buttonSave.disabled = true;
-    loadUserTasks(username);
     addUserTask(username, newTask);
-    document.querySelector('tbody').append(createTask(newTask));
+    document.querySelector('tbody').append(createTask(newTask, username));
     updateRowNumbers();
   });
 
