@@ -11,7 +11,7 @@ export const createTask = (data, username) => {
 
   task.className = 'table-light';
   taskNameTd.className = 'task';
-  btnDelete.className = 'btn btn-danger';
+  btnDelete.className = 'btn btn-danger btn-delete';
   btnComplete.className = 'btn btn-success';
 
   task.done = data.done;
@@ -37,10 +37,12 @@ export const createTask = (data, username) => {
       task.className = 'table-light';
       statusTd.textContent = 'В процессе';
       taskNameTd.className = 'task';
+      btnComplete.textContent = 'Завршить';
     } else {
       task.className = 'table-success';
       taskNameTd.className = 'text-decoration-line-through';
       statusTd.textContent = 'Завершена';
+      btnComplete.textContent = 'Отменить';
     }
     localStorage.setItem(username, JSON.stringify(arrayNew));
   });
@@ -64,10 +66,12 @@ export const createTask = (data, username) => {
     task.className = 'table-light';
     statusTd.textContent = 'В процессе';
     taskNameTd.className = 'task';
+    btnComplete.textContent = 'Завршить';
   } else {
     task.className = 'table-success';
     statusTd.textContent = 'Завершена';
     taskNameTd.className = 'text-decoration-line-through';
+    btnComplete.textContent = 'Отменить';
   }
 
   return task;

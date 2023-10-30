@@ -10,9 +10,6 @@ export const createTable = () => {
 
   table.className = 'table table-hover table-bordered';
 
-  statusTh.style.width = '100px';
-  actionTh.style.width = '212px';
-
   numberTh.textContent = '№';
   taskTh.textContent = 'Задача';
   statusTh.textContent = 'Статус';
